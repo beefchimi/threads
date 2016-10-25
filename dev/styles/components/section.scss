@@ -1,0 +1,16 @@
+// ==|== component: section ====================================================
+// =============================================================================
+
+// Main page section
+// -----------------------------------------------------------------------------
+.section {
+  padding: spacing(loose) spacing(tighter);
+
+  & + & {
+    border-top: 1rem solid color(black);
+  }
+
+  @include media(breakpoint(portrait-tablet)) {
+    padding: spacing(loosest) spacing();
+  }
+}

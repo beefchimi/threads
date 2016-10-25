@@ -1,0 +1,156 @@
+// ==|== compontent: button ====================================================
+// =============================================================================
+
+// Variables
+// -----------------------------------------------------------------------------
+$button-depressed-offset: 0.1rem;
+$button-font-size: 1.4rem;
+$button-font-size-desktop: 1.8rem;
+
+// Component styles
+// -----------------------------------------------------------------------------
+.button {
+  display: inline-block;
+  position: relative;
+  color: color(white);
+}
+
+.button-interior {
+  @include flex-item-fix;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: spacing(tightest) spacing(tight);
+  font-size: $button-font-size;
+  font-weight: bold;
+  border: 0.3rem solid currentColor;
+  transition-property: color, background-color, border-color;
+  transition-duration: duration();
+  transition-timing-function: easing();
+
+  @include media(breakpoint(portrait-tablet)) {
+    font-size: $button-font-size-desktop;
+  }
+}
+
+.button-text,
+.button-icon {
+  @include flex-item-fix;
+  display: block;
+  flex: 0 1 auto;
+  transition-property: transform;
+  transition-duration: duration();
+  transition-timing-function: easing();
+}
+
+.button-text + .button-icon,
+.button-icon + .button-text {
+  margin-left: spacing(tightest);
+
+  @include media(breakpoint(portrait-tablet)) {
+    margin-left: spacing(tighter);
+  }
+}
+
+.button-text {
+  white-space: nowrap;
+}
+
+.button-icon {
+  width: $button-font-size;
+
+  @include media(breakpoint(portrait-tablet)) {
+    width: $button-font-size-desktop;
+  }
+}
+
+// --- Interaction --- //
+.button {
+  &:hover {
+    color: color(slate, darker);
+  }
+
+  &:active {
+    color: color(slate, darkest);
+
+    .button-text,
+    .button-icon {
+      transform: translateY($button-depressed-offset);
+    }
+  }
+}
+
+// Variations
+// -----------------------------------------------------------------------------
+.button:disabled,
+.button[disabled],
+.button--disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.button--link,
+.button--plain {
+  color: color(slate, darker);
+
+  .button-interior {
+    border: none;
+  }
+
+  .button-text,
+  .button-icon {
+    transition: none;
+  }
+
+  &:hover {
+    color: color(sky, lightest);
+  }
+
+  &:active {
+    color: color(sky, lighter);
+
+    .button-text,
+    .button-icon {
+      transform: translateY(0);
+    }
+  }
+}
+
+.button--link {
+  .button-interior {
+    padding: 0;
+  }
+}
+
+// Button container
+// -----------------------------------------------------------------------------
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -(spacing(tighter));
+  margin-left: -(spacing(tighter));
+
+  .button {
+    @include flex-item-fix;
+    flex: 0 0 auto;
+    display: block;
+    margin-top: spacing(tighter);
+    margin-left: spacing(tighter);
+  }
+
+  @include media(breakpoint(portrait-tablet)) {
+    margin-top: -(spacing(tight));
+    margin-left: -(spacing(tight));
+
+    .button {
+      margin-top: spacing(tight);
+      margin-left: spacing(tight);
+    }
+  }
+}
+
+.button-container--centered {
+  align-items: center;
+  justify-content: center;
+}

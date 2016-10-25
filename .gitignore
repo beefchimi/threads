@@ -1,19 +1,31 @@
-# Build and Release Folders
-bin/
-bin-debug/
-bin-release/
-[Oo]bj/ # FlashDevelop obj
-[Bb]in/ # FlashDevelop bin
+# Ignore OS Specific files
+.DS_Store
 
-# Other files and folders
-.settings/
+# Ignore the SASS cache
+.sass-cache
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Logs
+logs
+*.log
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Ignore scrap folders
+scrap
+
+# Ignore build directory
+build
+
+# Ignore copyright webfonts
+page/dev/extra/fonts
+
+# Ignore media audio, images, and videos
+dev/media/audio
+dev/media/images
+dev/media/videos
+
+# Ignore vendor scripts
+dev/scripts/vendor
+
+# Dependency directory
+# Deployed apps should consider commenting this line out:
+# see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
+node_modules

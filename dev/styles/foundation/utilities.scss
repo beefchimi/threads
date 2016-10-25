@@ -1,0 +1,56 @@
+// ==|== foundation: utilities =================================================
+// =============================================================================
+
+// Functions
+// -----------------------------------------------------------------------------
+// Returns the list of available names in a given map.
+// @param {Map} $map - The map of data to list the names from.
+// @param {Number} $map (optional) - The level of depth to get names from.
+// @return {String} The list of names in the map.
+@function available-names($map, $level: 1) {
+  @if type-of($map) != 'map' {
+    @return null;
+  }
+
+  $output: '';
+  $newline: '\A ';
+
+  @if $level == 1 {
+    @each $key, $value in $map {
+      $output: $output + '#{$newline}- #{$key} #{available-names($value, $level + 1)}';
+    }
+  } @else {
+    $output: '(';
+    $i: 1;
+
+    @each $key, $value in $map {
+      $sep: if($i < length($map), ', ', '');
+      $output: $output + '#{$key}#{$sep}#{available-names($value, $level + 1)}';
+      $i: $i + 1;
+    }
+
+    $output: $output + ')';
+  }
+
+  @return $output;
+}
+
+// Returns the url() function containing the path to the requested asset.
+// @param {String} $media-type - Type of asset you want to fetch.
+// @param {String} $filename - Filename including extension.
+// @return {String} url() with path - example: url('path/to/requested-asset.ftw')
+@function path-to-asset($media-type, $filename) {
+  $accepted-media-types: (
+    svg: 'svg',
+    image: 'img',
+    font: 'fonts',
+  );
+
+  $fetched-value: map-get($accepted-media-types, $media-type);
+
+  @if type-of($fetched-value) == string {
+    @return url("../#{$fetched-value}/#{$filename}");
+  } @else {
+    @error 'Media type `#{$media-type}` not found. Available types: #{available-names($accepted-media-types)}';
+  }
+}

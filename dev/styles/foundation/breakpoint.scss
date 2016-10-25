@@ -1,0 +1,53 @@
+// ==|== foundation: breakpoint ================================================
+// =============================================================================
+
+// Default maps
+// -----------------------------------------------------------------------------
+$breakpoint-data: (
+  portrait-mobile:   320px,
+  portrait-iphone6:  375px,
+  portrait-tablet:   768px,
+  portrait-720p:     720px,
+  portrait-1080p:   1080px,
+  portrait-imac:    1440px,
+  landscape-mobile:  480px,
+  landscape-iphone6: 667px,
+  landscape-tablet: 1024px,
+  landscape-720p:   1280px,
+  landscape-1080p:  1920px,
+  landscape-imac:   2560px,
+);
+
+// Functions
+// -----------------------------------------------------------------------------
+// Returns the breakpoint value for a given variant.
+// @param {String} $variant - The key for the given variant.
+// @return {Number} The breakpoint for the variant in px.
+@function breakpoint($variant) {
+  $fetched-breakpoint: map-get($breakpoint-data, $variant);
+
+  @if $fetched-breakpoint != null {
+    @return $fetched-breakpoint;
+  } @else {
+    @error 'Breakpoint variant `#{$variant}` not found. Available variants: #{available-names($breakpoint-data)}';
+  }
+}
+
+// Mixins
+// -----------------------------------------------------------------------------
+// Easier @media-queries
+// @param {Number} $length - Length in px to trigger media query.
+// @param {Boolean} $min - Use `min` or `max` as the media qualifier.
+// @param {Boolean} $width - Use `width` or `height` as the media axis.
+@mixin media($length, $min: true, $width: true) {
+  @if unit($length) != 'px' {
+    @error '`$length` must be in `px`.';
+  }
+
+  $qualifier: if($min, 'min', 'max');
+  $axis: if($width, 'width', 'height');
+
+  @media screen and (#{$qualifier}-#{$axis}: $length) {
+    @content;
+  }
+}

@@ -1,0 +1,62 @@
+// ==|== component: container ==================================================
+// =============================================================================
+
+// Potentially this evolves into a "grid" component.
+
+// Maps
+// -----------------------------------------------------------------------------
+$container-width-data: (
+  page: (
+    base: 8rem,
+    small: 40rem,
+    medium: 80rem,
+    large: 112rem,
+  ),
+);
+
+// Functions
+// -----------------------------------------------------------------------------
+// Returns the container width for a given group and variation.
+// @param {String} $group - The qualifier group you wish to target.
+// @param {String} $variant (optional) - The width variation for the specified group.
+// @return {Number} The container width in REMs.
+@function container-width($group, $variant: base) {
+  $fetched-container-width: map-get(map-get($container-width-data, $group), $variant);
+
+  // if the fetched value matches another key, get the value of that matching key
+  @if map-has-key($container-width-data, $fetched-container-width) {
+    $fetched-container-width: map-get(
+      map-get($container-width-data, $fetched-container-width)
+    , $variant);
+  }
+
+  @if type-of($fetched-container-width) == number {
+    @return $fetched-container-width;
+  } @else {
+    @error 'Container width `#{$group}: #{$variant}` not found. Available widths: #{available-names($container-width-data)}';
+  }
+}
+
+// Setup
+// -----------------------------------------------------------------------------
+@mixin page-container($max-width: null) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
+}
+
+@each $group, $map in $container-width-data {
+  @each $variant, $value in $map {
+    @if $variant != base {
+      .#{$group}-container--#{$variant} {
+        max-width: container-width($group, $variant);
+      }
+    }
+  }
+}
+
+// Page container
+// -----------------------------------------------------------------------------
+.page-container {
+  @include page-container;
+}

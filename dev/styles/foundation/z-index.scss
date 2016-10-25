@@ -1,0 +1,32 @@
+// ==|== foundation: z-index ===================================================
+// =============================================================================
+
+// Default maps
+// -----------------------------------------------------------------------------
+$z-index-base-unit: 100;
+
+$default-z-index-data: (
+  base: $z-index-base-unit,
+  main: $z-index-base-unit * 2,
+  header: $z-index-base-unit * 3,
+  footer: $z-index-base-unit * 4,
+  nav: $z-index-base-unit * 5,
+);
+
+$custom-z-index-data: () !default;
+
+// Functions
+// -----------------------------------------------------------------------------
+// Returns the z-index value for a given variant.
+// @param {String} $variant - The key for the given variant.
+// @return {Number} The z-index value for the variant.
+@function z-index($variant: base) {
+  $z-index-data: map-merge($default-z-index-data, $custom-z-index-data);
+  $fetched-z-index: map-get($z-index-data, $variant);
+
+  @if type-of($fetched-z-index) == number {
+    @return $fetched-z-index;
+  } @else {
+    @error 'z-index variant `#{$variant}` not found. Available variants: #{available-names($z-index-data)}';
+  }
+}

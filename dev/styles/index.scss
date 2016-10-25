@@ -1,0 +1,31 @@
+// ==|== styles manifest =======================================================
+// =============================================================================
+
+// --- Foundation --- //
+@import 'foundation/reset';
+@import 'foundation/utilities';
+@import 'foundation/color';
+@import 'foundation/animation';
+@import 'foundation/breakpoint';
+@import 'foundation/spacing';
+@import 'foundation/z-index';
+@import 'foundation/layout';
+@import 'foundation/typography';
+@import 'foundation/border';
+@import 'foundation/media';
+
+// --- Global styles & Foundation overrides --- //
+@import 'global';
+
+// --- Components --- //
+// @import 'components/fonts';
+@import 'components/page';
+@import 'components/container';
+@import 'components/section';
+@import 'components/icon';
+@import 'components/button';
+@import 'components/heading';
+@import 'components/content';
+
+// --- Areas --- //
+@import 'area/home';
