@@ -4,7 +4,7 @@
 // Custom maps
 // -----------------------------------------------------------------------------
 // --- Shopify Core color palette --- //
-$custom-color-data: (
+$shopify-core-color-data: (
   sky: (
     lightest: #fcfcfc,
     lighter: #fafbfc,
@@ -100,6 +100,8 @@ $custom-color-data: (
     base: blue,
   ),
 );
+
+$color-data: map-extend($color-data, $shopify-core-color-data);
 
 // --- Animation --- //
 $custom-easing-data: (

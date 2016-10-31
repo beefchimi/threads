@@ -3,7 +3,7 @@
 
 // Default maps
 // -----------------------------------------------------------------------------
-$default-color-data: (
+$color-data: (
   white: (
     base: #fff,
   ),
@@ -30,8 +30,6 @@ $default-color-data: (
   ),
 );
 
-$custom-color-data: () !default;
-
 // Functions
 // -----------------------------------------------------------------------------
 // Returns the color value for a given color name and group.
@@ -41,16 +39,11 @@ $custom-color-data: () !default;
 // Applies a multiply filter to ensure appropriate contrast.
 // @return {Color} The color value.
 @function color($hue, $value: base, $for-background: null) {
-  $color-data: map-merge($default-color-data, $custom-color-data);
-  $fetched-color: map-get(
-    map-get($color-data, $hue)
-  , $value);
+  $fetched-color: map-deep-get($color-data, $hue, $value);
 
   // if the fetched value matches another key, get the value of that matching key
   @if map-has-key($color-data, $fetched-color) {
-    $fetched-color: map-get(
-      map-get($color-data, $fetched-color)
-    , $value);
+    $fetched-color: map-deep-get($color-data, $fetched-color, $value);
   }
 
   @if type-of($for-background) == color {

@@ -3,6 +3,36 @@
 
 // Functions
 // -----------------------------------------------------------------------------
+// Fetch nested keys from a map.
+// @param {Map} $map - The map you want to check against.
+// @param {Arglist} $keys - Keys to fetch
+// @return {Value} The value held by the key you want fetched.
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+// Merge multiple maps into one.
+// @param {Map} $map - Initial default map.
+// @param {ArgList} $maps - Other maps to merge.
+// @return {Map} The final merged map.
+@function map-extend($map, $maps...) {
+  @for $i from 1 through length($maps) {
+    @each $key, $value in nth($maps, $i) {
+      @if (type-of($value) == map) and (type-of(map-get($map, $key)) == map) {
+        $value: map-extend(map-get($map, $key), $value);
+      }
+
+      $map: map-merge($map, ($key: $value));
+    }
+  }
+
+  @return $map;
+}
+
 // Returns the list of available names in a given map.
 // @param {Map} $map - The map of data to list the names from.
 // @param {Number} $map (optional) - The level of depth to get names from.
