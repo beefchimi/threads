@@ -8,14 +8,17 @@
 logs
 *.log
 
-# Ignore scrap folders
-scrap
+# Ignore secrets.json
+secrets.json
 
 # Ignore build directory
 build
 
 # Ignore copyright webfonts
-page/dev/extra/fonts
+dev/extra/fonts
+
+# Ignore scrap folders
+scrap
 
 # Ignore media audio, images, and videos
 dev/media/audio
