@@ -1,0 +1,40 @@
+// ==|== threads > properties > font-family ====================================
+// =============================================================================
+
+$font-family-data: (
+  base: #{
+    -apple-system,
+    'BlinkMacSystemFont',
+    'San Francisco',
+    'Roboto',
+    'Segoe UI',
+    'Helvetica Neue',
+    sans-serif
+  },
+  monospace: #{
+    Monaco,
+    Consolas,
+    'Lucida Console',
+    monospace
+  },
+);
+
+// Returns the font stack for a given family.
+// @param {String} $family (optional) - The key for the given family.
+// @return {List} The font stack for the requested family.
+@function font-family($family: base) {
+  $fetched-font-family: map-get($font-family-data, $family);
+
+  @if $fetched-font-family != null {
+    @return $fetched-font-family;
+  } @else {
+    @error 'Font family `#{$family}` not found. Available font families: #{available-names($font-family-data)}';
+  }
+}
+
+// Returns a new map, formed by merging the target Thread property with a custom map.
+// @param {Map} $custom-map - The custom map containing new and/or override keys + values.
+// @return {Map} The new merged map, to be re-assigned as the Thread property data variable.
+@function set-font-family-data($custom-map) {
+  @return map-extend($font-family-data, $custom-map);
+}

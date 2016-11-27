@@ -1,0 +1,28 @@
+// ==|== threads > properties > radius ==================================
+// =============================================================================
+
+$radius-data: (
+  tight: 0.1rem,
+  base: 0.3rem,
+  loose: 0.6rem,
+);
+
+// Returns the radius value for the given variant.
+// @param {String} $variant (optional) - The key for the radius variant
+// @return {Number} The border radius value in REMs.
+@function radius($variant: base) {
+  $fetched-radius: map-get($radius-data, $variant);
+
+  @if type-of($fetched-radius) == number {
+    @return $fetched-radius;
+  } @else {
+    @error 'Border variant `#{$variant}` not found. Available variants: #{available-names($radius-data)}';
+  }
+}
+
+// Returns a new map, formed by merging the target Thread property with a custom map.
+// @param {Map} $custom-map - The custom map containing new and/or override keys + values.
+// @return {Map} The new merged map, to be re-assigned as the Thread property data variable.
+@function set-radius-data($custom-map) {
+  @return map-extend($radius-data, $custom-map);
+}

@@ -1,0 +1,30 @@
+// ==|== threads > properties > container ======================================
+// =============================================================================
+
+$container-data: (
+  page: (
+    base: 8rem,
+    small: 40rem,
+    medium: 80rem,
+    large: 112rem,
+  ),
+);
+
+// Returns the container width for a given group and variation.
+// @param {String} $group - The qualifier group you wish to target.
+// @param {String} $variant (optional) - The width variation for the specified group.
+// @return {Number} The container width in REMs.
+@function container($group, $variant: base) {
+  $fetched-container: map-deep-get($container-data, $group, $variant);
+
+  // if the fetched value matches another key, get the value of that matching key
+  @if map-has-key($container-data, $fetched-container) {
+    $fetched-container: map-deep-get($container-data, $fetched-container, $variant);
+  }
+
+  @if type-of($fetched-container) == number {
+    @return $fetched-container;
+  } @else {
+    @error 'Container `#{$group}: #{$variant}` not found. Available containers: #{available-names($container-data)}';
+  }
+}

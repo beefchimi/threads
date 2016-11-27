@@ -1,61 +1,21 @@
-// ==|== foundation: typography ================================================
+// ==|== threads > helpers > typography ========================================
 // =============================================================================
 
-// Default maps
-// -----------------------------------------------------------------------------
-$default-font-family-data: (
-  base: #{
-    -apple-system,
-    'BlinkMacSystemFont',
-    'San Francisco',
-    'Roboto',
-    'Segoe UI',
-    'Helvetica Neue',
-    sans-serif
-  },
-  monospace: #{
-    Monaco,
-    Consolas,
-    'Lucida Console',
-    monospace
-  },
-);
-
-$custom-font-family-data: () !default;
-
-// Functions
-// -----------------------------------------------------------------------------
-// Returns the font stack for a given family.
-// @param {String} $family (optional) - The key for the given family.
-// @return {List} The font stack for the requested family.
-@function font-family($family: base) {
-  $font-family-data: map-merge($default-font-family-data, $custom-font-family-data);
-  $fetched-font-family: map-get($font-family-data, $family);
-
-  @if $fetched-font-family != null {
-    @return $fetched-font-family;
-  } @else {
-    @error 'Font family `#{$family}` not found. Available font families: #{available-names($font-family-data)}';
-  }
-}
-
-// Mixins
-// -----------------------------------------------------------------------------
 // For truncating single line text.
 // @param {String} $display (optional) - The value to be used for `display`.
 // @param {Boolean} $descender-fix (optional) - Sometimes descenders are cutoff by overflow.
-@mixin truncate($display: block, $descender-fix: false) {
+@mixin text-truncate($display: block, $descender-fix: false) {
   $padding-bottom: if($descender-fix, 0.25em, null);
 
   display: $display;
+  padding-bottom: $padding-bottom;
   max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  padding-bottom: $padding-bottom;
 }
 
-// A better way to achieve `text-decoration: underline;` - allows for transitions!
+// A better way to achieve `text-decoration: underline;` (allows for transitions)
 // @param {Number} $bottom (optional) - Allows for increasing / decreasing vertical positioning.
 // @param {Number} $weight (optional) - Weight of the underline (value to be used for `height`).
 @mixin link-underline($bottom: 0, $weight: 0.1rem) {
@@ -67,8 +27,7 @@ $custom-font-family-data: () !default;
     @error '#{$weight} is not a number.';
   }
 
-  // perhaps there should be a param to prevent overriding `position`?
-  position: relative;
+  position: relative; // perhaps there should be a param to prevent overriding `position`?
 
   &::before {
     content: '';
@@ -95,11 +54,11 @@ $custom-font-family-data: () !default;
 // Helper classes
 // -----------------------------------------------------------------------------
 .text-truncate {
-  @include truncate;
+  @include text-truncate;
 }
 
 .text-truncate--inline-block {
-  @include truncate('inline-block');
+  @include text-truncate('inline-block');
 }
 
 .text-center {

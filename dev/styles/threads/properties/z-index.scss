@@ -1,11 +1,9 @@
-// ==|== foundation: z-index ===================================================
+// ==|== threads > properties > z-index ========================================
 // =============================================================================
 
-// Default maps
-// -----------------------------------------------------------------------------
 $z-index-base-unit: 100;
 
-$default-z-index-data: (
+$z-index-data: (
   base: $z-index-base-unit,
   main: $z-index-base-unit * 2,
   header: $z-index-base-unit * 3,
@@ -13,15 +11,10 @@ $default-z-index-data: (
   nav: $z-index-base-unit * 5,
 );
 
-$custom-z-index-data: () !default;
-
-// Functions
-// -----------------------------------------------------------------------------
 // Returns the z-index value for a given variant.
 // @param {String} $variant - The key for the given variant.
 // @return {Number} The z-index value for the variant.
 @function z-index($variant: base) {
-  $z-index-data: map-merge($default-z-index-data, $custom-z-index-data);
   $fetched-z-index: map-get($z-index-data, $variant);
 
   @if type-of($fetched-z-index) == number {
@@ -29,4 +22,11 @@ $custom-z-index-data: () !default;
   } @else {
     @error 'z-index variant `#{$variant}` not found. Available variants: #{available-names($z-index-data)}';
   }
+}
+
+// Returns a new map, formed by merging the target Thread property with a custom map.
+// @param {Map} $custom-map - The custom map containing new and/or override keys + values.
+// @return {Map} The new merged map, to be re-assigned as the Thread property data variable.
+@function set-z-index-data($custom-map) {
+  @return map-extend($z-index-data, $custom-map);
 }

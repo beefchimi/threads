@@ -1,0 +1,47 @@
+// ==|== threads > properties > breakpoint =====================================
+// =============================================================================
+
+$breakpoint-data: (
+  portrait: (
+    mobile: 320px,
+    iphone6: 375px,
+    tablet: 768px,
+    720p: 720px,
+    1080p: 1080px,
+    imac: 1440px,
+  ),
+  landscape: (
+    mobile: 480px,
+    iphone6: 667px,
+    tablet: 1024px,
+    720p: 1280px,
+    1080p: 1920px,
+    imac: 2560px,
+  ),
+);
+
+// Returns the breakpoint width for a given orientation and device.
+// @param {String} $orientation - The orientation (portrait or landscape).
+// @param {String} $device - The device you intend to target.
+// @return {Number} The breakpoint width for the given orientation and device.
+@function breakpoint($orientation, $device) {
+  $fetched-breakpoint: map-deep-get($breakpoint-data, $orientation, $device);
+
+  // if the fetched width matches another key, get the width of that matching key
+  @if map-has-key($breakpoint-data, $fetched-breakpoint) {
+    $fetched-breakpoint: map-deep-get($breakpoint-data, $fetched-breakpoint, $device);
+  }
+
+  @if type-of($fetched-breakpoint) == number {
+    @return $fetched-breakpoint;
+  } @else {
+    @error 'Breakpoint width `#{$device}` not found. Available widths: #{available-names($breakpoint-data)}';
+  }
+}
+
+// Returns a new map, formed by merging the target Thread property with a custom map.
+// @param {Map} $custom-map - The custom map containing new and/or override keys + values.
+// @return {Map} The new merged map, to be re-assigned as the Thread property data variable.
+@function set-breakpoint-data($custom-map) {
+  @return map-extend($breakpoint-data, $custom-map);
+}

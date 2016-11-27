@@ -1,0 +1,29 @@
+// ==|== threads > properties > easing =========================================
+// =============================================================================
+
+$easing-data: (
+  base: ease-in-out,
+  in: cubic-bezier(0.36, 0, 1, 1),
+  out: cubic-bezier(0, 0, 0.42, 1),
+  in-out: cubic-bezier(0.64, 0, 0.35, 1),
+);
+
+// Returns the animation easing for the given variant.
+// @param {String} $variant (optional) - The timing-function you want used.
+// @return {Timing} The animation timing value.
+@function easing($variant: base) {
+  $fetched-easing: map-get($easing-data, $variant);
+
+  @if $fetched-easing {
+    @return $fetched-easing;
+  } @else {
+    @error 'Animation timing `#{$variant}` not found. Available timings: #{available-names($easing-data)}';
+  }
+}
+
+// Returns a new map, formed by merging the target Thread property with a custom map.
+// @param {Map} $custom-map - The custom map containing new and/or override keys + values.
+// @return {Map} The new merged map, to be re-assigned as the Thread property data variable.
+@function set-easing-data($custom-map) {
+  @return map-extend($easing-data, $custom-map);
+}

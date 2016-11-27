@@ -1,8 +1,23 @@
-// ==|== foundation: layout ====================================================
+// ==|== threads > helpers > layout ============================================
 // =============================================================================
 
-// Mixins
-// -----------------------------------------------------------------------------
+// Easier @media-queries
+// @param {Number} $length - Length in px to trigger media query.
+// @param {Boolean} $min - Use `min` or `max` as the media qualifier.
+// @param {Boolean} $width - Use `width` or `height` as the media axis.
+@mixin media($length, $min: true, $width: true) {
+  @if unit($length) != 'px' {
+    @error '`$length` must be in `px`.';
+  }
+
+  $qualifier: if($min, 'min', 'max');
+  $axis: if($width, 'width', 'height');
+
+  @media screen and (#{$qualifier}-#{$axis}: $length) {
+    @content;
+  }
+}
+
 // Styles for (un)locking the ability to scroll the document.
 // Requires the `data-html-scroll` attribute on <html>.
 // Toggling of the attribute value is handled via JS.
@@ -29,6 +44,12 @@
   > * + * {
     margin-top: spacing($spacing-variant);
   }
+}
+
+@mixin page-container($max-width: null) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
 }
 
 // To be used on flex items. Resolves some common layout issues, such as
@@ -176,4 +197,19 @@
   width: .1rem;
   height: .1rem;
   border: 0
+}
+
+// --- Page container + variants --- //
+.page-container {
+  @include page-container;
+}
+
+@each $group, $map in $container-data {
+  @each $variant, $value in $map {
+    @if $variant != base {
+      .#{$group}-container--#{$variant} {
+        max-width: container($group, $variant);
+      }
+    }
+  }
 }

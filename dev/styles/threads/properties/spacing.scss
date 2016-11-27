@@ -1,0 +1,37 @@
+// ==|== threads > properties > spacing ========================================
+// =============================================================================
+
+$spacing-unit: 0.4rem;
+
+$spacing-data: (
+  tightest: $spacing-unit * 2,
+  tighter: $spacing-unit * 4,
+  tight: $spacing-unit * 6,
+  base:  $spacing-unit * 8,
+  loose: $spacing-unit * 10,
+  looser: $spacing-unit * 12,
+  loosest: $spacing-unit * 14,
+  fat: $spacing-unit * 16,
+  fatter: $spacing-unit * 18,
+  fattest: $spacing-unit * 20,
+);
+
+// Returns the spacing value for a given variant.
+// @param {String} $variant (optional) - The key for the given variant.
+// @return {Number} The spacing for the variant.
+@function spacing($variant: base) {
+  $fetched-spacing: map-get($spacing-data, $variant);
+
+  @if type-of($fetched-spacing) == number {
+    @return $fetched-spacing;
+  } @else {
+    @error 'Spacing variant `#{$variant}` not found. Available variants: #{available-names($spacing-data)}';
+  }
+}
+
+// Returns a new map, formed by merging the target Thread property with a custom map.
+// @param {Map} $custom-map - The custom map containing new and/or override keys + values.
+// @return {Map} The new merged map, to be re-assigned as the Thread property data variable.
+@function set-spacing-data($custom-map) {
+  @return map-extend($spacing-data, $custom-map);
+}

@@ -1,26 +1,30 @@
 // ==|== styles manifest =======================================================
 // =============================================================================
 
-// --- Foundation --- //
-@import 'foundation/reset';
-@import 'foundation/utilities';
-@import 'foundation/color';
-@import 'foundation/animation';
-@import 'foundation/breakpoint';
-@import 'foundation/spacing';
-@import 'foundation/z-index';
-@import 'foundation/layout';
-@import 'foundation/typography';
-@import 'foundation/border';
-@import 'foundation/media';
+// --- Threads --- //
+@import 'threads/core/reset';
+@import 'threads/core/utilities';
+@import 'threads/properties/font-family';
+@import 'threads/properties/color';
+@import 'threads/properties/duration';
+@import 'threads/properties/easing';
+@import 'threads/properties/breakpoint';
+@import 'threads/properties/spacing';
+@import 'threads/properties/z-index';
+@import 'threads/properties/border';
+@import 'threads/properties/radius';
+@import 'threads/properties/container';
+@import 'threads/helpers/animation';
+@import 'threads/helpers/media';
+@import 'threads/helpers/layout';
+@import 'threads/helpers/typography';
 
-// --- Global styles & Foundation overrides --- //
+// --- Global styles & Threads overrides --- //
 @import 'global';
 
 // --- Components --- //
 // @import 'components/fonts';
 @import 'components/page';
-@import 'components/container';
 @import 'components/section';
 @import 'components/icon';
 @import 'components/button';

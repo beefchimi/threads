@@ -1,0 +1,28 @@
+// ==|== threads > properties > border =========================================
+// =============================================================================
+
+$border-data: (
+  thin: 0.1rem solid currentColor,
+  base: 0.2rem solid currentColor,
+  thick: 0.4rem solid currentColor,
+);
+
+// Returns the shorthand border value for the given variant.
+// @param {String} $variant (optional) - The key for the border variant
+// @return {List} The shorthand border value with width, style, and color.
+@function border($variant: base) {
+  $fetched-border: map-get($border-data, $variant);
+
+  @if type-of($fetched-border) == list {
+    @return $fetched-border;
+  } @else {
+    @error 'Border variant `#{$variant}` not found. Available variants: #{available-names($border-data)}';
+  }
+}
+
+// Returns a new map, formed by merging the target Thread property with a custom map.
+// @param {Map} $custom-map - The custom map containing new and/or override keys + values.
+// @return {Map} The new merged map, to be re-assigned as the Thread property data variable.
+@function set-border-data($custom-map) {
+  @return map-extend($border-data, $custom-map);
+}
