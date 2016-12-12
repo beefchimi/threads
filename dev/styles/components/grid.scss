@@ -1,0 +1,20 @@
+// ==|== components > grid =====================================================
+// =============================================================================
+
+// Page containers
+// -----------------------------------------------------------------------------
+.page-container {
+  @include page-container;
+}
+
+@each $group, $map in map-get($threads-properties, $container-label) {
+  @if $group == page {
+    @each $variant, $value in $map {
+      @if $variant != base {
+        .#{$group}-container--#{$variant} {
+          max-width: container($group, $variant);
+        }
+      }
+    }
+  }
+}

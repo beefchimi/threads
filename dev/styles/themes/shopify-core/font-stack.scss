@@ -1,0 +1,22 @@
+// ==|== themes > shopify-core > font-stack ====================================
+// =============================================================================
+
+// Font stacks
+// -----------------------------------------------------------------------------
+$shopify-core-font-stack-data: (
+  base: #{
+    -apple-system,
+    'BlinkMacSystemFont',
+    'San Francisco',
+    'Roboto',
+    'Segoe UI',
+    'Helvetica Neue',
+    sans-serif
+  },
+  monospace: #{
+    Monaco,
+    Consolas,
+    'Lucida Console',
+    monospace
+  },
+);

@@ -1,0 +1,24 @@
+// ==|== threads > properties > radius =========================================
+// =============================================================================
+$radius-label: 'radius';
+
+$threads-properties: map-merge(
+  $threads-properties, (
+    $radius-label: ()
+  )
+);
+
+// Returns the border-radius for the given group and variant.
+// @param {String} $group (optional) - The key for the border-radius group.
+// @param {String} $variant (optional) - The key for the border-radius variant.
+// @return {Number/List} The border-radius value.
+@function radius($group: $threads-default-value, $variant: $threads-default-value) {
+  $radius-data: map-get($threads-properties, $radius-label);
+  $fetched-radius: threads-value-get($radius-data, $group, $variant);
+
+  @if type-of($fetched-radius) != null {
+    @return $fetched-radius;
+  } @else {
+    @error 'Border `#{$group} - #{$variant}` not found. Available options: #{available-names($radius-data)}';
+  }
+}

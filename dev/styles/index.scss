@@ -1,31 +1,31 @@
-// ==|== styles manifest =======================================================
+// ==|== styles manifest > global ==============================================
 // =============================================================================
 
-// --- Foundation --- //
-@import 'foundation/reset';
-@import 'foundation/utilities';
-@import 'foundation/color';
-@import 'foundation/animation';
-@import 'foundation/breakpoint';
-@import 'foundation/spacing';
-@import 'foundation/z-index';
-@import 'foundation/layout';
-@import 'foundation/typography';
-@import 'foundation/border';
-@import 'foundation/media';
+// --- Reset --- //
+@import 'reset';
 
-// --- Global styles & Foundation overrides --- //
-@import 'global';
+// --- Threads --- //
+@import 'threads/core';
+@import 'threads/properties';
+@import 'threads/helpers';
+
+// --- Threads sample overrides --- //
+// @import 'threads/sample/properties';
+// @import 'threads/sample/settings';
+
+// --- Themes --- //
+@import 'themes/shopify-core';
+@import 'themes/merge-with-threads';
 
 // --- Components --- //
 // @import 'components/fonts';
 @import 'components/page';
-@import 'components/container';
 @import 'components/section';
 @import 'components/icon';
 @import 'components/button';
 @import 'components/heading';
 @import 'components/content';
+@import 'components/grid';
 
 // --- Areas --- //
-@import 'area/home';
+@import 'areas/home';

@@ -1,14 +1,14 @@
 {
-  "name": "scss-foundation",
+  "name": "threads",
   "version": "1.0.0",
-  "description": "SCSS Foundation",
+  "description": "Threads SCSS Foundation",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Shopify/scss-foundation.git"
+    "url": "https://github.com/Shopify/threads.git"
   },
   "keywords": [
     "gulp",
@@ -16,29 +16,39 @@
   ],
   "author": "Curtis Dulmage",
   "bugs": {
-    "url": "https://github.com/Shopify/scss-foundation/issues"
+    "url": "https://github.com/Shopify/threads/issues"
   },
-  "homepage": "https://github.com/Shopify/scss-foundation",
+  "homepage": "https://github.com/Shopify/threads",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.18.0",
+    "babel-core": "^6.20.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-0": "^6.16.0",
     "babelify": "^7.3.0",
-    "browser-sync": "^2.17.5",
+    "browser-sync": "^2.18.5",
+    "browserify": "^13.1.1",
+    "global": "^4.3.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-changed": "^1.3.2",
+    "gulp-cli": "^1.2.2",
     "gulp-cssnano": "^2.1.2",
+    "gulp-favicons": "^2.2.7",
     "gulp-file-include": "^1.0.0",
-    "gulp-imagemin": "^3.0.3",
+    "gulp-imagemin": "^3.1.1",
     "gulp-inject": "^4.1.0",
-    "gulp-load-plugins": "^1.3.0",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^3.0.0",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-svgstore": "^6.1.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
     "imagemin-pngcrush": "^5.0.0",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
   }
 }

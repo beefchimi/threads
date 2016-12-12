@@ -1,8 +1,6 @@
-// ==|== compontent: button ====================================================
+// ==|== components > button ===================================================
 // =============================================================================
 
-// Variables
-// -----------------------------------------------------------------------------
 $button-depressed-offset: 0.1rem;
 $button-font-size: 1.4rem;
 $button-font-size-desktop: 1.8rem;
@@ -12,7 +10,7 @@ $button-font-size-desktop: 1.8rem;
 .button {
   display: inline-block;
   position: relative;
-  color: color(white);
+  color: color(black);
 }
 
 .button-interior {
@@ -29,7 +27,7 @@ $button-font-size-desktop: 1.8rem;
   transition-duration: duration();
   transition-timing-function: easing();
 
-  @include media(breakpoint(portrait-tablet)) {
+  @include media(breakpoint(portrait, tablet)) {
     font-size: $button-font-size-desktop;
   }
 }
@@ -39,6 +37,7 @@ $button-font-size-desktop: 1.8rem;
   @include flex-item-fix;
   display: block;
   flex: 0 1 auto;
+  // transform: translateY(0);
   transition-property: transform;
   transition-duration: duration();
   transition-timing-function: easing();
@@ -46,9 +45,9 @@ $button-font-size-desktop: 1.8rem;
 
 .button-text + .button-icon,
 .button-icon + .button-text {
-  margin-left: spacing(tightest);
+  margin-left: spacing(tightest); // should be larger based on button size... `em` based?
 
-  @include media(breakpoint(portrait-tablet)) {
+  @include media(breakpoint(portrait, tablet)) {
     margin-left: spacing(tighter);
   }
 }
@@ -60,7 +59,7 @@ $button-font-size-desktop: 1.8rem;
 .button-icon {
   width: $button-font-size;
 
-  @include media(breakpoint(portrait-tablet)) {
+  @include media(breakpoint(portrait, tablet)) {
     width: $button-font-size-desktop;
   }
 }
@@ -68,11 +67,11 @@ $button-font-size-desktop: 1.8rem;
 // --- Interaction --- //
 .button {
   &:hover {
-    color: color(slate, darker);
+    color: color(teal);
   }
 
   &:active {
-    color: color(slate, darkest);
+    color: color(teal, dark);
 
     .button-text,
     .button-icon {
@@ -87,15 +86,17 @@ $button-font-size-desktop: 1.8rem;
 .button[disabled],
 .button--disabled {
   pointer-events: none;
-  cursor: default;
+  cursor: default; // redundant?
 }
 
 .button--link,
 .button--plain {
-  color: color(slate, darker);
+  color: color(teal);
 
   .button-interior {
+    // background-color: transparent;
     border: none;
+    // transition-property: color; // restrict to only `color`
   }
 
   .button-text,
@@ -104,11 +105,19 @@ $button-font-size-desktop: 1.8rem;
   }
 
   &:hover {
-    color: color(sky, lightest);
+    color: color(teal, dark);
+
+    .button-interior {
+      // background-color: transparent;
+    }
   }
 
   &:active {
-    color: color(sky, lighter);
+    color: color(teal);
+
+    .button-interior {
+      // background-color: transparent;
+    }
 
     .button-text,
     .button-icon {
@@ -139,7 +148,7 @@ $button-font-size-desktop: 1.8rem;
     margin-left: spacing(tighter);
   }
 
-  @include media(breakpoint(portrait-tablet)) {
+  @include media(breakpoint(portrait, tablet)) {
     margin-top: -(spacing(tight));
     margin-left: -(spacing(tight));
 
