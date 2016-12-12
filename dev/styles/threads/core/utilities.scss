@@ -1,8 +1,6 @@
 // ==|== threads > core > utilities ============================================
 // =============================================================================
 
-// Map functions
-// -----------------------------------------------------------------------------
 // Returns the list of available names in a given map.
 // @param {Map} $map - The map of data to list the names from.
 // @param {Number} $map (optional) - The level of depth to get names from.
@@ -65,48 +63,32 @@
   @return $map;
 }
 
-// Helper functions
-// -----------------------------------------------------------------------------
-// Returns the url() function containing the path to the requested asset.
-// @param {String} $media-type - Type of asset you want to fetch.
-// @param {String} $filename - Filename including extension.
-// @return {String} url() with path - example: url('path/to/requested-asset.ftw')
-@function path-to-asset($media-type, $filename) {
-  $accepted-media-types: (
-    svg: 'svg',
-    image: 'img',
-    font: 'fonts',
+// Returns the map value for a given map name and group.
+// @param {Map} $data - The data map for the given thread.
+// @param {String} $key - The map's key.
+// @param {String} $variant - The map's variant.
+// @return {Value} The requested value.
+@function threads-value-get($data, $key, $variant) {
+  $value-is-map: type-of(map-get($data, $key)) == map;
+
+  $fetched-value: if(
+    $value-is-map,
+    map-deep-get($data, $key, $variant),
+    map-get($data, $key)
   );
 
-  $fetched-value: map-get($accepted-media-types, $media-type);
+  // if the fetched value matches another key, get the value of that matching key
+  // if the value is a map, the final fetched value will be the `threads-default-value`,
+  // which is defined in config.scss
+  @if map-has-key($data, $fetched-value) {
+    $value-is-map: type-of(map-get($data, $fetched-value)) == map;
 
-  @if type-of($fetched-value) == string {
-    @return url('../#{$fetched-value}/#{$filename}');
-  } @else {
-    @error 'Media type `#{$media-type}` not found. Available types: #{available-names($accepted-media-types)}';
-  }
-}
-
-// Darkens the foreground color by the background color.
-// This is the same as the “multiply” filter in graphics apps.
-// @param {Color} $foreground - The color to darken.
-// @param {Color} $background - The background to base darkening on.
-// @return {Color} The modified color.
-@function color-multiply($foreground, $background: null) {
-  @if type-of($background) != color {
-    $background: #fff;
+    $fetched-value: if(
+      $value-is-map,
+      map-deep-get($data, $fetched-value, $threads-default-value),
+      map-get($data, $fetched-value)
+    );
   }
 
-  @return $foreground * $background / 255;
-}
-
-// Determine strength of inset shadow based on background color
-// @param {Color} $color - The color to match shadow opacity against
-// @return {Number} The decimal value of opacity
-@function inset-shadow($color) {
-  @if (lightness($color) > 80 or opacity($color) < 0.5) {
-    @return 0.1;
-  } @else {
-    @return 0.2;
-  }
+  @return $fetched-value;
 }

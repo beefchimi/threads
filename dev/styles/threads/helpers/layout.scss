@@ -198,18 +198,3 @@
   height: .1rem;
   border: 0
 }
-
-// --- Page container + variants --- //
-.page-container {
-  @include page-container;
-}
-
-@each $group, $map in $container-data {
-  @each $variant, $value in $map {
-    @if $variant != base {
-      .#{$group}-container--#{$variant} {
-        max-width: container($group, $variant);
-      }
-    }
-  }
-}

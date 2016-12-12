@@ -1,0 +1,15 @@
+// ==|== themes > merge-with-threads ===========================================
+// =============================================================================
+
+// Shopify Core theme properties
+// -----------------------------------------------------------------------------
+@include threads-update-property('border', $shopify-core-border-data);
+@include threads-update-property('breakpoint', $shopify-core-breakpoint-data);
+@include threads-update-property('color', $shopify-core-color-data);
+@include threads-update-property('container', $shopify-core-container-data);
+@include threads-update-property('duration', $shopify-core-duration-data);
+@include threads-update-property('easing', $shopify-core-easing-data);
+@include threads-update-property('font-stack', $shopify-core-font-stack-data);
+@include threads-update-property('radius', $shopify-core-radius-data);
+@include threads-update-property('spacing', $shopify-core-spacing-data);
+@include threads-update-property('z-index', $shopify-core-z-index-data);

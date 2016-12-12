@@ -1,32 +1,24 @@
 // ==|== threads > properties > duration =======================================
 // =============================================================================
+$duration-label: 'duration';
 
-$duration-data: (
-  fastest: 30ms,
-  faster: 60ms,
-  fast: 120ms,
-  base: 240ms,
-  slow: 480ms,
-  slower: 960ms,
-  slowest: 1920ms,
+$threads-properties: map-merge(
+  $threads-properties, (
+    $duration-label: ()
+  )
 );
 
-// Returns the animation duration for the given variant.
-// @param {String} $variant (optional) - The duration you want used.
-// @return {Number} The animation duration value.
-@function duration($variant: base) {
-  $fetched-duration: map-get($duration-data, $variant);
+// Returns the animation or transition duration for the given group and variant.
+// @param {String} $group (optional) - The key for the duration group.
+// @param {String} $variant (optional) - The key for the duration variant.
+// @return {Number} The animation or transition duration.
+@function duration($group: $threads-default-value, $variant: $threads-default-value) {
+  $duration-data: map-get($threads-properties, $duration-label);
+  $fetched-duration: threads-value-get($duration-data, $group, $variant);
 
   @if type-of($fetched-duration) == number {
     @return $fetched-duration;
   } @else {
-    @error 'Animation duration `#{$variant}` not found. Available durations: #{available-names($duration-data)}';
+    @error 'Duration `#{$group} - #{$variant}` not found. Available options: #{available-names($duration-data)}';
   }
-}
-
-// Returns a new map, formed by merging the target Thread property with a custom map.
-// @param {Map} $custom-map - The custom map containing new and/or override keys + values.
-// @return {Map} The new merged map, to be re-assigned as the Thread property data variable.
-@function set-duration-data($custom-map) {
-  @return map-extend($duration-data, $custom-map);
 }

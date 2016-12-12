@@ -1,4 +1,4 @@
-// ==|== compontents > button ==================================================
+// ==|== components > button ===================================================
 // =============================================================================
 
 $button-depressed-offset: 0.1rem;
@@ -10,7 +10,7 @@ $button-font-size-desktop: 1.8rem;
 .button {
   display: inline-block;
   position: relative;
-  color: color(white);
+  color: color(black);
 }
 
 .button-interior {
@@ -67,11 +67,11 @@ $button-font-size-desktop: 1.8rem;
 // --- Interaction --- //
 .button {
   &:hover {
-    color: color(slate, darker);
+    color: color(teal);
   }
 
   &:active {
-    color: color(slate, darkest);
+    color: color(teal, dark);
 
     .button-text,
     .button-icon {
@@ -91,7 +91,7 @@ $button-font-size-desktop: 1.8rem;
 
 .button--link,
 .button--plain {
-  color: color(slate, darker);
+  color: color(teal);
 
   .button-interior {
     // background-color: transparent;
@@ -105,7 +105,7 @@ $button-font-size-desktop: 1.8rem;
   }
 
   &:hover {
-    color: color(sky, lightest);
+    color: color(teal, dark);
 
     .button-interior {
       // background-color: transparent;
@@ -113,7 +113,7 @@ $button-font-size-desktop: 1.8rem;
   }
 
   &:active {
-    color: color(sky, lighter);
+    color: color(teal);
 
     .button-interior {
       // background-color: transparent;

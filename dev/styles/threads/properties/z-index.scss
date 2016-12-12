@@ -1,32 +1,24 @@
 // ==|== threads > properties > z-index ========================================
 // =============================================================================
+$z-index-label: 'z-index';
 
-$z-index-base-unit: 100;
-
-$z-index-data: (
-  base: $z-index-base-unit,
-  main: $z-index-base-unit * 2,
-  header: $z-index-base-unit * 3,
-  footer: $z-index-base-unit * 4,
-  nav: $z-index-base-unit * 5,
+$threads-properties: map-merge(
+  $threads-properties, (
+    $z-index-label: ()
+  )
 );
 
-// Returns the z-index value for a given variant.
-// @param {String} $variant - The key for the given variant.
-// @return {Number} The z-index value for the variant.
-@function z-index($variant: base) {
-  $fetched-z-index: map-get($z-index-data, $variant);
+// Returns the z-index for the given group and variant.
+// @param {String} $group (optional) - The key for the z-index group.
+// @param {String} $variant (optional) - The key for the z-index variant.
+// @return {Number} The z-index value.
+@function z-index($group: $threads-default-value, $variant: $threads-default-value) {
+  $z-index-data: map-get($threads-properties, $z-index-label);
+  $fetched-z-index: threads-value-get($z-index-data, $group, $variant);
 
   @if type-of($fetched-z-index) == number {
     @return $fetched-z-index;
   } @else {
-    @error 'z-index variant `#{$variant}` not found. Available variants: #{available-names($z-index-data)}';
+    @error 'z-index `#{$group} - #{$variant}` not found. Available options: #{available-names($z-index-data)}';
   }
-}
-
-// Returns a new map, formed by merging the target Thread property with a custom map.
-// @param {Map} $custom-map - The custom map containing new and/or override keys + values.
-// @return {Map} The new merged map, to be re-assigned as the Thread property data variable.
-@function set-z-index-data($custom-map) {
-  @return map-extend($z-index-data, $custom-map);
 }

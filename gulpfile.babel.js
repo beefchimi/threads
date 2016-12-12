@@ -255,13 +255,13 @@ gulp.task('svg', () => {
 gulp.task('favicons', () => {
   return gulp.src(PATHS.FAVICONS.SRC)
     .pipe(GLP.favicons({
-      appName: 'Draggable',
-      appDescription: 'A lightweight, modular, drag & drop library.',
+      appName: 'Threads',
+      appDescription: 'A lightweight, modular, SCSS foundation.',
       developerName: 'Curtis Dulmage',
       developerURL: 'http://dulmage.me/',
       background: '#0042FF',
       path: PATHS.FAVICONS.ABS_PATH,
-      url: 'http://draggable.io/',
+      url: 'http://threads.io/',
       display: 'standalone',
       orientation: 'portrait',
       start_url: '/?homescreen=1',

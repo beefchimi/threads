@@ -1,26 +1,21 @@
-// ==|== styles manifest =======================================================
+// ==|== styles manifest > global ==============================================
 // =============================================================================
 
-// --- Threads --- //
-@import 'threads/core/reset';
-@import 'threads/core/utilities';
-@import 'threads/properties/font-family';
-@import 'threads/properties/color';
-@import 'threads/properties/duration';
-@import 'threads/properties/easing';
-@import 'threads/properties/breakpoint';
-@import 'threads/properties/spacing';
-@import 'threads/properties/z-index';
-@import 'threads/properties/border';
-@import 'threads/properties/radius';
-@import 'threads/properties/container';
-@import 'threads/helpers/animation';
-@import 'threads/helpers/media';
-@import 'threads/helpers/layout';
-@import 'threads/helpers/typography';
+// --- Reset --- //
+@import 'reset';
 
-// --- Global styles & Threads overrides --- //
-@import 'global';
+// --- Threads --- //
+@import 'threads/core';
+@import 'threads/properties';
+@import 'threads/helpers';
+
+// --- Threads sample overrides --- //
+// @import 'threads/sample/properties';
+// @import 'threads/sample/settings';
+
+// --- Themes --- //
+@import 'themes/shopify-core';
+@import 'themes/merge-with-threads';
 
 // --- Components --- //
 // @import 'components/fonts';
@@ -30,6 +25,7 @@
 @import 'components/button';
 @import 'components/heading';
 @import 'components/content';
+@import 'components/grid';
 
 // --- Areas --- //
-@import 'area/home';
+@import 'areas/home';

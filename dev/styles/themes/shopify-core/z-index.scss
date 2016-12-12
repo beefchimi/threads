@@ -1,0 +1,14 @@
+// ==|== themes > shopify-core > z-index =======================================
+// =============================================================================
+
+// Z-index layer ordering
+// -----------------------------------------------------------------------------
+$z-index-base-unit: 100;
+
+$shopify-core-z-index-data: (
+  base: $z-index-base-unit,
+  main: $z-index-base-unit * 2,
+  header: $z-index-base-unit * 3,
+  footer: $z-index-base-unit * 4,
+  nav: $z-index-base-unit * 5,
+);
