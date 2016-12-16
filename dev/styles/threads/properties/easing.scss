@@ -16,7 +16,7 @@ $threads-properties: map-merge(
   $easing-data: map-get($threads-properties, $easing-label);
   $fetched-easing: threads-value-get($easing-data, $group, $variant);
 
-  @if $fetched-easing != null {
+  @if type-of($fetched-easing) == string {
     @return $fetched-easing;
   } @else {
     @error 'Animation timing `#{$variant}` not found. Available timings: #{available-names($easing-data)}';

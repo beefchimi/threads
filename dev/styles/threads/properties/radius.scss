@@ -16,7 +16,7 @@ $threads-properties: map-merge(
   $radius-data: map-get($threads-properties, $radius-label);
   $fetched-radius: threads-value-get($radius-data, $group, $variant);
 
-  @if type-of($fetched-radius) != null {
+  @if type-of($fetched-radius) == number or type-of($fetched-radius) == list {
     @return $fetched-radius;
   } @else {
     @error 'Border `#{$group} - #{$variant}` not found. Available options: #{available-names($radius-data)}';
