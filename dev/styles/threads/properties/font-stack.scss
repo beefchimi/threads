@@ -18,7 +18,7 @@ $threads-properties: map-merge(
   $font-stack-data: map-get($threads-properties, $font-stack-label);
   $fetched-font-stack: threads-value-get($font-stack-data, $group, $variant);
 
-  @if $fetched-font-stack != null {
+  @if type-of($fetched-font-stack) == string or type-of($fetched-font-stack) == list {
     @return $fetched-font-stack;
   } @else {
     @error 'Font-stack `#{$group} - #{$variant}` not found. Available options: #{available-names($font-stack-data)}';

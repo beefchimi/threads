@@ -16,7 +16,7 @@ $threads-properties: map-merge(
   $border-data: map-get($threads-properties, $border-label);
   $fetched-border: threads-value-get($border-data, $group, $variant);
 
-  @if type-of($fetched-border) == list {
+  @if type-of($fetched-border) == number or type-of($fetched-border) == string or type-of($fetched-border) == list {
     @return $fetched-border;
   } @else {
     @error 'Border `#{$group} - #{$variant}` not found. Available options: #{available-names($border-data)}';
