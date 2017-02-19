@@ -5,13 +5,13 @@
 @import 'reset';
 
 // --- Threads --- //
-@import 'threads/core';
-@import 'threads/properties';
-@import 'threads/helpers';
+@import '../../../threads/core';
+@import '../../../threads/properties';
+@import '../../../threads/helpers';
 
 // --- Threads sample overrides --- //
-// @import 'threads/sample/properties';
-// @import 'threads/sample/settings';
+// @import '../../../threads/sample/properties';
+// @import '../../../threads/sample/settings';
 
 // --- Themes --- //
 @import 'themes/shopify-core';
