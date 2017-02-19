@@ -1,0 +1,24 @@
+// ==|== threads > properties > container ======================================
+// =============================================================================
+$container-label: 'container';
+
+$threads-properties: map-merge(
+  $threads-properties, (
+    $container-label: ()
+  )
+);
+
+// Returns the container width for the given group and variant.
+// @param {String} $group (optional) - The key for the container group.
+// @param {String} $variant (optional) - The key for the container variant.
+// @return {Number} The container width.
+@function container($group: $threads-default-value, $variant: $threads-default-value) {
+  $container-data: map-get($threads-properties, $container-label);
+  $fetched-container: threads-value-get($container-data, $group, $variant);
+
+  @if type-of($fetched-container) == number {
+    @return $fetched-container;
+  } @else {
+    @error 'Container `#{$group} - #{$variant}` not found. Available options: #{available-names($container-data)}';
+  }
+}
