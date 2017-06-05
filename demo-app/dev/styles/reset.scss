@@ -1,12 +1,15 @@
-// ==|== threads > core > reset ================================================
-// =============================================================================
+////
+/// Global resets
+/// Based on normalize.css
+////
 
-// Document
-// -----------------------------------------------------------------------------
+///
+/// Document
 html {
   font-family: sans-serif;
   font-size: 62.5%;
   text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   box-sizing: border-box;
 
@@ -36,8 +39,8 @@ body {
   width: device-width;
 }
 
-// Links
-// -----------------------------------------------------------------------------
+///
+/// Links
 a {
   text-decoration: none;
   background: transparent;
@@ -52,8 +55,8 @@ a {
   }
 }
 
-// Typography
-// -----------------------------------------------------------------------------
+///
+/// Typography
 h1,
 h2,
 h3,
@@ -98,8 +101,8 @@ blockquote {
   margin: 0;
 }
 
-// Lists
-// -----------------------------------------------------------------------------
+///
+/// Lists
 ol,
 ul {
   list-style: none;
@@ -109,8 +112,21 @@ ul {
   }
 }
 
-// Embedded Content
-// -----------------------------------------------------------------------------
+// Avoid 300ms click delay on touch devices that support 'touch-action'
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+///
+/// Embedded Content
 img {
   max-width: 100%;
   height: auto;
@@ -124,13 +140,14 @@ svg {
 }
 
 /*
-svg:not(:root) {
-  overflow: hidden;
-}
+  // this might not be a good thing
+  svg:not(:root) {
+    overflow: hidden;
+  }
 */
 
-// Grouping Content
-// -----------------------------------------------------------------------------
+///
+/// Grouping Content
 figure {
   margin: 0;
 }
@@ -141,17 +158,18 @@ hr {
 }
 
 pre {
+  margin-top: 0;
+  margin-bottom: 0;
   overflow: auto;
 }
 
 code,
 pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
+  font-family: monospace;
 }
 
-// Forms
-// -----------------------------------------------------------------------------
+///
+/// Forms
 button,
 input,
 optgroup,
@@ -277,14 +295,15 @@ button:focus {
 
 ::-moz-placeholder {
   box-shadow: none;
+  opacity: 1;
 }
 
 :-ms-input-placeholder {
   box-shadow: none;
 }
 
-// Tables
-// -----------------------------------------------------------------------------
+///
+/// Tables
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -293,18 +312,4 @@ table {
 td,
 th {
   padding: 0;
-}
-
-// Avoid 300ms click delay on touch devices that support 'touch-action'
-// -----------------------------------------------------------------------------
-a,
-area,
-button,
-input,
-label,
-select,
-summary,
-textarea,
-[role="button"] {
-  touch-action: manipulation;
 }

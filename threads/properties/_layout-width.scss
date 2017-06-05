@@ -1,0 +1,27 @@
+////
+/// Threads Properties
+/// Layout Width
+////
+
+$layout-width-label: 'layout-width';
+
+$threads-properties: map-merge(
+  $threads-properties, (
+    $layout-width-label: (),
+  )
+);
+
+// Returns the layout width for the given group and variant.
+// @param {String} $group (optional) - The key for the layout-width group.
+// @param {String} $variant (optional) - The key for the layout-width variant.
+// @return {Number} The layout width.
+@function layout-width($group: $threads-default-value, $variant: $threads-default-value) {
+  $layout-width-data: map-get($threads-properties, $layout-width-label);
+  $fetched-layout-width: threads-value-get($layout-width-data, $group, $variant);
+
+  @if type-of($fetched-layout-width) == number {
+    @return $fetched-layout-width;
+  } @else {
+    @error 'Layout width `#{$group} - #{$variant}` not found. Available options: #{available-names($layout-width-data)}';
+  }
+}

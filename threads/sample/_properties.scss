@@ -1,8 +1,10 @@
-// ==|== threads > sample > properties =========================================
-// =============================================================================
+////
+/// Threads Sample
+/// Properties
+////
 
-// Sample border styles
-// -----------------------------------------------------------------------------
+///
+/// Sample border styles
 $sample-border-data: (
   thin: 1px solid currentColor,
   base: 2px solid currentColor,
@@ -10,8 +12,8 @@ $sample-border-data: (
   divider: 3px dotted black,
 );
 
-// Sample breakpoints
-// -----------------------------------------------------------------------------
+///
+/// Sample breakpoints
 $sample-breakpoint-data: (
   base: 960px,
   portrait: (
@@ -26,8 +28,8 @@ $sample-breakpoint-data: (
   ),
 );
 
-// Sample theme colors
-// -----------------------------------------------------------------------------
+///
+/// Sample theme colors
 $sample-color-data: (
   base: transparent,
   white: #fff,
@@ -49,28 +51,16 @@ $sample-color-data: (
   ),
 );
 
-// Sample container widths
-// -----------------------------------------------------------------------------
-$sample-container-data: (
-  page: (
-    base: 8rem,
-    small: 40rem,
-    medium: 80rem,
-    large: 112rem,
-  ),
-  base: page,
-);
-
-// Sample durations
-// -----------------------------------------------------------------------------
+///
+/// Sample durations
 $sample-duration-data: (
   fast: 120ms,
   base: 240ms,
   slow: 480ms,
 );
 
-// Sample asing timing functions
-// -----------------------------------------------------------------------------
+///
+/// Sample easing (timing functions)
 $sample-easing-data: (
   base: ease-in-out,
   in: cubic-bezier(0.36, 0, 1, 1),
@@ -78,8 +68,8 @@ $sample-easing-data: (
   in-out: cubic-bezier(0.64, 0, 0.35, 1),
 );
 
-// Sample font-stacks
-// -----------------------------------------------------------------------------
+///
+/// Sample font-stacks
 $sample-font-stack-data: (
   base: #{
     -apple-system,
@@ -98,8 +88,32 @@ $sample-font-stack-data: (
   },
 );
 
-// Sample border radius
-// -----------------------------------------------------------------------------
+///
+/// Sample layout height
+$sample-layout-height-data: (
+  page: (
+    base: 8rem,
+    small: 40rem,
+    medium: 80rem,
+    large: 112rem,
+  ),
+  base: page,
+);
+
+///
+/// Sample layout widths
+$sample-layout-width-data: (
+  page: (
+    base: 8rem,
+    small: 40rem,
+    medium: 80rem,
+    large: 112rem,
+  ),
+  base: page,
+);
+
+///
+/// Sample border radius
 $sample-radius-data: (
   base: 3px,
   circle: 50%,
@@ -107,8 +121,15 @@ $sample-radius-data: (
   strange: 3px 1px 0 50%,
 );
 
-// Sample spacing measurements
-// -----------------------------------------------------------------------------
+///
+/// Sample text and box shadows
+$sample-shadow-data: (
+  base: 0 1.2rem 3.6rem white,
+  inside: inset 0 0.4rem 0.4rem black,
+);
+
+///
+/// Sample spacing measurements
 $sample-spacing-data: (
   tigher: 20px,
   tight: 40px,
@@ -117,8 +138,19 @@ $sample-spacing-data: (
   looser: 160px,
 );
 
-// Sample z-index layer ordering
-// -----------------------------------------------------------------------------
+///
+/// Sample typographic scale
+$sample-type-scale-data: (
+  small: 1.4rem,
+  base: 1.6rem,
+  h1: (
+    base: 4.8rem,
+    desktop: 4.8rem,
+  ),
+);
+
+///
+/// Sample z-index layer ordering
 $sample-z-index-data: (
   base: 100,
   main: 200,
