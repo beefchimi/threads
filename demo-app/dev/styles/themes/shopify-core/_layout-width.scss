@@ -1,0 +1,14 @@
+////
+/// Shopify Core Theme
+/// Layout Width
+////
+
+$shopify-core-layout-width-data: (
+  page: (
+    base: 8rem,
+    small: 40rem,
+    medium: 80rem,
+    large: 112rem,
+  ),
+  base: page,
+);

@@ -1,24 +1,23 @@
-// ==|== styles manifest > global ==============================================
-// =============================================================================
+////
+/// Styles Manifest
+/// Global
+////
 
-// --- Reset --- //
+///
+/// Reset
 @import 'reset';
 
-// --- Threads --- //
-@import '../../../threads/core';
-@import '../../../threads/properties';
-@import '../../../threads/helpers';
+///
+/// Vendor
+@import '../../../threads/threads';
 
-// --- Threads sample overrides --- //
-// @import '../../../threads/sample/properties';
-// @import '../../../threads/sample/settings';
-
-// --- Themes --- //
+///
+/// Theme properties
 @import 'themes/shopify-core';
 @import 'themes/merge-with-threads';
 
-// --- Components --- //
-// @import 'components/fonts';
+///
+/// Components
 @import 'components/page';
 @import 'components/section';
 @import 'components/icon';
@@ -27,5 +26,6 @@
 @import 'components/content';
 @import 'components/grid';
 
-// --- Areas --- //
+///
+/// Areas
 @import 'areas/home';
