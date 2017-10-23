@@ -1,8 +1,0 @@
-# go away
-User-agent: *
-Disallow: /
-
-# hello
-# User-agent: *
-# Disallow: /sites
-# Disallow: /files

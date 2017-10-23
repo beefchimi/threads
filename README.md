@@ -6,7 +6,7 @@ Threads ships with a common set of property maps – all empty by default. Consu
 
 ## Philosophy
 
-Threads makes few assumptions about how a consumer prefers to write styles. The core Threads library will not output any CSS _(however we do offer a set of common helpers that consumers may find useful to include in their projects)_.
+Threads makes few assumptions about how a consumer prefers to write styles. The core Threads library will not output any CSS.
 
 Maps can be either 1 or 2 levels deep, meaning you can have something as simple as:
 
@@ -141,8 +141,6 @@ Here is what a typical SCSS manifest might look like for a project consuming Thr
 // --- Threads --- //
 @import 'threads/core';
 @import 'threads/properties';
-// if you choose to include Threads helper styles:
-// @import 'threads/helpers';
 
 // --- Themes --- //
 // your project theme, defining all custom property maps
@@ -181,9 +179,3 @@ Threads protects against inappropriate property values by checking the final res
 > SCSS's inference of what values are `lists` vs `strings` is tough to predict. Therefore, `$font-stack` must type check against `list or string`.
 
 Threads will throw an error if you are not using an inappropriate value for a particular property.
-
-**Helpers**
-
-Threads comes with an optional `helpers` folder. If you choose to include this, `@import` the folder immediately after importing `properties`.
-
-`helpers` is a curation of useful `mixins`, `functions` and `classes` for you to use in your projects.

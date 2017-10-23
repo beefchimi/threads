@@ -1,8 +1,0 @@
-/* the humans responsible & colophon */
-/* humanstxt.org */
-
-/* TEAM */
-
-  Shopify: Curtis Dulmage
-  Site: http://shopify.ca
-  Location: Ottawa, Ontario, Canada
