@@ -79,10 +79,23 @@
     map-get($data, $key)
   );
 
+  // need to perform this craziness because
+  // SASS seems to think `purple == #800080` is true
+  $options: map-keys($data);
+  $options-index: index($options, $fetched-value);
+  $options-item: if(
+    $options-index,
+    nth($options, $options-index),
+    null
+  );
+
+  $has-key: map-has-key($data, $fetched-value);
+  $equal-keys: '#{$options-item}' == '#{$fetched-value}';
+
   // if the fetched value matches another key, get the value of that matching key
   // if the value is a map, the final fetched value will be the `threads-default-value`,
   // which is defined in config.scss
-  @if map-has-key($data, $fetched-value) {
+  @if $has-key and $equal-keys {
     $value-is-map: type-of(map-get($data, $fetched-value)) == map;
 
     $fetched-value: if(
