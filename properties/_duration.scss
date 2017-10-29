@@ -15,7 +15,7 @@ $threads-properties: map-merge(
 // @param {String} $group (optional) - The key for the duration group.
 // @param {String} $variant (optional) - The key for the duration variant.
 // @return {Number} The animation or transition duration.
-@function duration($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-duration($group: $threads-default-value, $variant: $threads-default-value) {
   $duration-data: map-get($threads-properties, $duration-label);
   $fetched-duration: threads-value-get($duration-data, $group, $variant);
 

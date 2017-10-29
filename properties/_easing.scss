@@ -15,7 +15,7 @@ $threads-properties: map-merge(
 // @param {String} $group (optional) - The key for the easing group.
 // @param {String} $variant (optional) - The key for the easing variant.
 // @return {String/Function} The animation or transition timing function.
-@function easing($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-easing($group: $threads-default-value, $variant: $threads-default-value) {
   $easing-data: map-get($threads-properties, $easing-label);
   $fetched-easing: threads-value-get($easing-data, $group, $variant);
 

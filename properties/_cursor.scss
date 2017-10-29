@@ -15,7 +15,7 @@ $threads-properties: map-merge(
 // @param {String} $group (optional) - The key for the cursor group.
 // @param {String} $variant (optional) - The key for the cursor variant.
 // @return {String} The url path to the image asset and the fallback value.
-@function cursor($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-cursor($group: $threads-default-value, $variant: $threads-default-value) {
   $cursor-data: map-get($threads-properties, $cursor-label);
   $fetched-cursor: threads-value-get($cursor-data, $group, $variant);
 

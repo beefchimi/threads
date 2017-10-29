@@ -15,7 +15,7 @@ $threads-properties: map-merge(
 // @param {String} $group (optional) - The key for the type-scale group.
 // @param {String} $variant (optional) - The key for the type-scale variant.
 // @return {Number} The requested type-scale.
-@function type-scale($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-type-scale($group: $threads-default-value, $variant: $threads-default-value) {
   $type-scale-data: map-get($threads-properties, $type-scale-label);
   $fetched-type-scale: threads-value-get($type-scale-data, $group, $variant);
 

@@ -15,7 +15,7 @@ $threads-properties: map-merge(
 // @param {String} $group (optional) - The key for the border group.
 // @param {String} $variant (optional) - The key for the border variant.
 // @return {List} The shorthand border value with width, style, and color.
-@function border($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-border($group: $threads-default-value, $variant: $threads-default-value) {
   $border-data: map-get($threads-properties, $border-label);
   $fetched-border: threads-value-get($border-data, $group, $variant);
 

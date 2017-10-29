@@ -15,7 +15,7 @@ $threads-properties: map-merge(
 // @param {String} $group (optional) - The key for the z-index group.
 // @param {String} $variant (optional) - The key for the z-index variant.
 // @return {Number} The z-index value.
-@function z-index($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-z-index($group: $threads-default-value, $variant: $threads-default-value) {
   $z-index-data: map-get($threads-properties, $z-index-label);
   $fetched-z-index: threads-value-get($z-index-data, $group, $variant);
 
