@@ -15,7 +15,7 @@ $threads-properties: map-merge(
 // @param {String} $group (optional) - The key for the layout-width group.
 // @param {String} $variant (optional) - The key for the layout-width variant.
 // @return {Number} The layout width.
-@function layout-width($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-layout-width($group: $threads-default-value, $variant: $threads-default-value) {
   $layout-width-data: map-get($threads-properties, $layout-width-label);
   $fetched-layout-width: threads-value-get($layout-width-data, $group, $variant);
 

@@ -17,7 +17,7 @@ $threads-properties: map-merge(
 // @param {String} $variant (optional) - The key for the font-stack variant.
   // Tip: helpful to think of this as the `font variant` (thin / light / bold / heavy).
 // @return {List} The font-stack for the requested family.
-@function font-stack($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-font-stack($group: $threads-default-value, $variant: $threads-default-value) {
   $font-stack-data: map-get($threads-properties, $font-stack-label);
   $fetched-font-stack: threads-value-get($font-stack-data, $group, $variant);
 

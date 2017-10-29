@@ -17,7 +17,7 @@ $threads-properties: map-merge(
 // @param {String} $variant (optional) - The key for the breakpoint variant.
   // Tip: helpful to think of this as `device` (mobile / tablet / desktop).
 // @return {Number} The breakpoint width for the given group and variant.
-@function breakpoint($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-breakpoint($group: $threads-default-value, $variant: $threads-default-value) {
   $breakpoint-data: map-get($threads-properties, $breakpoint-label);
   $fetched-breakpoint: threads-value-get($breakpoint-data, $group, $variant);
 

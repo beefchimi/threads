@@ -15,7 +15,7 @@ $threads-properties: map-merge(
 // @param {String} $group (optional) - The key for the layout-height group.
 // @param {String} $variant (optional) - The key for the layout-height variant.
 // @return {Number} The layout height.
-@function layout-height($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-layout-height($group: $threads-default-value, $variant: $threads-default-value) {
   $layout-height-data: map-get($threads-properties, $layout-height-label);
   $fetched-layout-height: threads-value-get($layout-height-data, $group, $variant);
 

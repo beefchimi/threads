@@ -15,7 +15,7 @@ $threads-properties: map-merge(
 // @param {String} $group (optional) - The key for the spacing group.
 // @param {String} $variant (optional) - The key for the spacing variant.
 // @return {Number} The spacing value.
-@function spacing($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-spacing($group: $threads-default-value, $variant: $threads-default-value) {
   $spacing-data: map-get($threads-properties, $spacing-label);
   $fetched-spacing: threads-value-get($spacing-data, $group, $variant);
 

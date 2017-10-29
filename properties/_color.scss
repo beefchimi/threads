@@ -17,7 +17,7 @@ $threads-properties: map-merge(
 // @param {String} $variant (optional) - The key for the color variant.
   // Tip: helpful to think of this as `shade` (lightness / darkness).
 // @return {Color} The color value.
-@function color($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-color($group: $threads-default-value, $variant: $threads-default-value) {
   $color-data: map-get($threads-properties, $color-label);
   $fetched-color: threads-value-get($color-data, $group, $variant);
 
