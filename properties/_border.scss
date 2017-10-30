@@ -1,8 +1,12 @@
 ////
 /// Threads Properties
 /// Border
+/// @group properties
+/// @author Curtis Dulmage
 ////
 
+/// Label used within $threads-properties
+/// @type {String} Used when merging values into $threads-properties
 $border-label: 'border';
 
 $threads-properties: map-merge(
@@ -11,10 +15,10 @@ $threads-properties: map-merge(
   )
 );
 
-// Returns the shorthand border value for the given group and variant.
-// @param {String} $group (optional) - The key for the border group.
-// @param {String} $variant (optional) - The key for the border variant.
-// @return {List} The shorthand border value with width, style, and color.
+/// Returns the shorthand border value for the given group and variant.
+/// @param {String} $group (optional) - The key for the border group.
+/// @param {String} $variant (optional) - The key for the border variant.
+/// @return {List} The shorthand border value with width, style, and color.
 @function get-border($group: $threads-default-value, $variant: $threads-default-value) {
   $border-data: map-get($threads-properties, $border-label);
   $fetched-border: threads-value-get($border-data, $group, $variant);
