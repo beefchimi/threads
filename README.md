@@ -63,10 +63,10 @@ $threads-properties: map-merge(
 
 Here we have established the property label for `color` and created an empty _color map_, which is then merged into the global `$threads-properties` map.
 
-**Next we have the `color` fetch function:**
+**Next we have the `get-color` function:**
 
 ```scss
-@function color($group: $threads-default-value, $variant: $threads-default-value) {
+@function get-color($group: $threads-default-value, $variant: $threads-default-value) {
   $color-data: map-get($threads-properties, $color-label);
   $fetched-color: threads-value-get($color-data, $group, $variant);
 
@@ -121,7 +121,7 @@ We use the `threads-update-property()` mixin to merge our custom map into the gl
 
 ```scss
 .test {
-  background-color: color(red, light);
+  background-color: get-color(red, light);
 }
 ```
 
@@ -132,26 +132,25 @@ This will give `.test` a `background-color` of `#ff9797`, as defined in our `$cu
 Here is what a typical SCSS manifest might look like for a project consuming Threads:
 
 ```scss
-// beginning of manifest
-
-// --- Reset --- //
-// custom or Threads recommended reset
+///
+/// Reset
 @import 'reset';
 
-// --- Threads --- //
-@import 'threads/core';
-@import 'threads/properties';
+///
+/// Vendor
+@import 'threads/threads';
 
-// --- Themes --- //
-// your project theme, defining all custom property maps
-@import 'themes/custom-theme';
-// file to merge each custom map with the Threads global properties
-@import 'themes/merge-with-threads';
+///
+/// Theme properties
+@import 'themes/custom-theme'; // your project theme, defining all custom property maps
+@import 'themes/merge-with-threads'; // file to merge each custom map with the Threads global properties
 
 // the rest of your project styles...
 ```
 
 **Core**
+
+The `threads.scss` file we `import` will load several partials.
 
 First to load is `threads/core`, which includes our Threads `utilities` and `config`.
 
