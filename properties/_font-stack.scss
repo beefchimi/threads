@@ -13,9 +13,9 @@ $threads-properties: map-merge(
 
 // Returns the font-stack for the given group and variant.
 // @param {String} $group (optional) - The key for the font-stack group.
-  // Tip: helpful to think of this as the `family` (Futura / Courier).
+// Tip: helpful to think of this as the `family` (Futura / Courier).
 // @param {String} $variant (optional) - The key for the font-stack variant.
-  // Tip: helpful to think of this as the `font variant` (thin / light / bold / heavy).
+// Tip: helpful to think of this as the `font variant` (thin / light / bold / heavy).
 // @return {List} The font-stack for the requested family.
 @function get-font-stack($group: $threads-default-value, $variant: $threads-default-value) {
   $font-stack-data: map-get($threads-properties, $font-stack-label);

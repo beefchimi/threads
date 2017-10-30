@@ -13,9 +13,9 @@ $threads-properties: map-merge(
 
 // Returns the color value for the given group and variant.
 // @param {String} $group (optional) - The key for the color group.
-  // Tip: helpful to think of this as `hue` or `action` (red / blue / primary / secondary).
+// Tip: helpful to think of this as `hue` or `action` (red / blue / primary / secondary).
 // @param {String} $variant (optional) - The key for the color variant.
-  // Tip: helpful to think of this as `shade` (lightness / darkness).
+// Tip: helpful to think of this as `shade` (lightness / darkness).
 // @return {Color} The color value.
 @function get-color($group: $threads-default-value, $variant: $threads-default-value) {
   $color-data: map-get($threads-properties, $color-label);
