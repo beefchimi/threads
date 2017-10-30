@@ -1,0 +1,33 @@
+{
+  "name": "threads",
+  "version": "1.0.0",
+  "description": "SCSS property manager – organize with style",
+  "author": "Curtis Dulmage",
+  "homepage": "https://github.com/beefchimi/threads",
+  "license": "MIT",
+  "main": "tools/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beefchimi/threads.git"
+  },
+  "keywords": [
+    "threads",
+    "scss"
+  ],
+  "bugs": {
+    "url": "https://github.com/beefchimi/threads/issues"
+  },
+  "scripts": {
+    "docs": "sassdoc **/*.scss --theme flippant",
+    "lint": "stylelint **/*.scss",
+    "watch": "chokidar **/*.scss",
+    "start": "yarn run watch -c 'yarn run docs'"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "sassdoc": "^2.4.0",
+    "sassdoc-theme-flippant": "^0.1.0",
+    "stylelint": "^8.2.0",
+    "stylelint-config-shopify": "^2.2.0"
+  }
+}

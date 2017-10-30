@@ -1,12 +1,14 @@
 ////
 /// Threads Core
 /// Utilities
+/// @group core
+/// @author Curtis Dulmage
 ////
 
-// Returns the list of available names in a given map.
-// @param {Map} $map - The map of data to list the names from.
-// @param {Number} $map (optional) - The level of depth to get names from.
-// @return {String} The list of names in the map.
+/// Returns the list of available names in a given map.
+/// @param {Map} $map - The map of data to list the names from.
+/// @param {Number} $map (optional) - The level of depth to get names from.
+/// @return {String} The list of names in the map.
 @function available-names($map, $level: 1) {
   @if type-of($map) != map {
     @return null;
@@ -35,10 +37,10 @@
   @return $output;
 }
 
-// Fetch nested keys from a map.
-// @param {Map} $map - The map you want to check against.
-// @param {Arglist} $keys - Keys to fetch
-// @return {Value} The value held by the key you want fetched.
+/// Fetch nested keys from a map.
+/// @param {Map} $map - The map you want to check against.
+/// @param {Arglist} $keys - Keys to fetch
+/// @return {Map} The value held by the key you want fetched.
 @function map-deep-get($map, $keys...) {
   @each $key in $keys {
     $map: map-get($map, $key);
@@ -47,10 +49,10 @@
   @return $map;
 }
 
-// Merge multiple maps into one.
-// @param {Map} $map - Initial default map.
-// @param {ArgList} $maps - Other maps to merge.
-// @return {Map} The final merged map.
+/// Merge multiple maps into one.
+/// @param {Map} $map - Initial default map.
+/// @param {ArgList} $maps - Other maps to merge.
+/// @return {Map} The final merged map.
 @function map-extend($map, $maps...) {
   @for $i from 1 through length($maps) {
     @each $key, $value in nth($maps, $i) {
@@ -65,11 +67,11 @@
   @return $map;
 }
 
-// Returns the map value for a given map name and group.
-// @param {Map} $data - The data map for the given thread.
-// @param {String} $key - The map's key.
-// @param {String} $variant - The map's variant.
-// @return {Value} The requested value.
+/// Returns the map value for a given map name and group.
+/// @param {Map} $data - The data map for the given thread.
+/// @param {String} $key - The map's key.
+/// @param {String} $variant - The map's variant.
+/// @return {Value} The requested value.
 @function threads-value-get($data, $key, $variant) {
   $value-is-map: type-of(map-get($data, $key)) == map;
 

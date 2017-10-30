@@ -1,8 +1,12 @@
 ////
 /// Threads Properties
 /// Radius
+/// @group properties
+/// @author Curtis Dulmage
 ////
 
+/// Label used within $threads-properties
+/// @type {String} Used when merging values into $threads-properties
 $radius-label: 'radius';
 
 $threads-properties: map-merge(
@@ -11,10 +15,10 @@ $threads-properties: map-merge(
   )
 );
 
-// Returns the border-radius for the given group and variant.
-// @param {String} $group (optional) - The key for the border-radius group.
-// @param {String} $variant (optional) - The key for the border-radius variant.
-// @return {Number/List} The border-radius value.
+/// Returns the border-radius for the given group and variant.
+/// @param {String} $group (optional) - The key for the border-radius group.
+/// @param {String} $variant (optional) - The key for the border-radius variant.
+/// @return {Number | List} The border-radius value.
 @function get-radius($group: $threads-default-value, $variant: $threads-default-value) {
   $radius-data: map-get($threads-properties, $radius-label);
   $fetched-radius: threads-value-get($radius-data, $group, $variant);

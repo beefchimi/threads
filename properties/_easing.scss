@@ -1,8 +1,12 @@
 ////
 /// Threads Properties
 /// Easing
+/// @group properties
+/// @author Curtis Dulmage
 ////
 
+/// Label used within $threads-properties
+/// @type {String} Used when merging values into $threads-properties
 $easing-label: 'easing';
 
 $threads-properties: map-merge(
@@ -11,10 +15,10 @@ $threads-properties: map-merge(
   )
 );
 
-// Returns the animation or transition timing function for the given group and variant.
-// @param {String} $group (optional) - The key for the easing group.
-// @param {String} $variant (optional) - The key for the easing variant.
-// @return {String/Function} The animation or transition timing function.
+/// Returns the animation or transition timing function for the given group and variant.
+/// @param {String} $group (optional) - The key for the easing group.
+/// @param {String} $variant (optional) - The key for the easing variant.
+/// @return {String} The animation or transition timing function.
 @function get-easing($group: $threads-default-value, $variant: $threads-default-value) {
   $easing-data: map-get($threads-properties, $easing-label);
   $fetched-easing: threads-value-get($easing-data, $group, $variant);
