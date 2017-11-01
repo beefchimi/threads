@@ -1,6 +1,6 @@
 {
   "name": "threads",
-  "version": "1.0.0",
+  "version": "1.0.0-beta7",
   "description": "SCSS property manager – organize with style",
   "author": "Curtis Dulmage",
   "homepage": "https://github.com/beefchimi/threads",
@@ -18,7 +18,7 @@
     "url": "https://github.com/beefchimi/threads/issues"
   },
   "scripts": {
-    "docs": "sassdoc **/*.scss --theme flippant",
+    "docs": "sassdoc **/*.scss --theme flippant --dest ./docs",
     "lint": "stylelint **/*.scss",
     "watch": "chokidar **/*.scss",
     "start": "yarn run watch -c 'yarn run docs'"
