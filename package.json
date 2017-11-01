@@ -10,24 +10,23 @@
     "type": "git",
     "url": "https://github.com/beefchimi/threads.git"
   },
-  "keywords": [
-    "threads",
-    "scss"
-  ],
+  "keywords": ["threads", "scss"],
   "bugs": {
     "url": "https://github.com/beefchimi/threads/issues"
   },
   "scripts": {
-    "docs": "sassdoc **/*.scss --theme flippant --dest ./docs",
-    "lint": "stylelint **/*.scss",
-    "watch": "chokidar **/*.scss",
+    "docs": "sassdoc './**/*.scss' --theme flippant --dest './docs'",
+    "lint": "stylelint './**/*.scss'",
+    "prettier": "prettier-stylelint './**/*.scss' --write -q",
+    "watch": "chokidar './**/*.scss'",
     "start": "yarn run watch -c 'yarn run docs'"
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
+    "prettier-stylelint": "^0.4.2",
     "sassdoc": "^2.4.0",
     "sassdoc-theme-flippant": "^0.1.0",
     "stylelint": "^8.2.0",
-    "stylelint-config-shopify": "^2.2.0"
+    "stylelint-config-shopify": "v3.0.0-beta.4"
   }
 }
