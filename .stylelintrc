@@ -1,8 +1,9 @@
 {
   "extends": [
-    "stylelint-config-shopify"
+    "stylelint-config-shopify/prettier"
   ],
   "rules": {
-    "function-comma-newline-after": null
+    "comment-empty-line-before": null,
+    "scss/double-slash-comment-empty-line-before": null
   }
 }
