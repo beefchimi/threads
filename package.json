@@ -10,7 +10,10 @@
     "type": "git",
     "url": "https://github.com/beefchimi/threads.git"
   },
-  "keywords": ["threads", "scss"],
+  "keywords": [
+    "threads",
+    "scss"
+  ],
   "bugs": {
     "url": "https://github.com/beefchimi/threads/issues"
   },
@@ -27,6 +30,6 @@
     "sassdoc": "^2.4.0",
     "sassdoc-theme-flippant": "^0.1.0",
     "stylelint": "^8.2.0",
-    "stylelint-config-shopify": "v3.0.0-beta.4"
+    "stylelint-config-shopify": "^3.0.0-beta.5"
   }
 }
