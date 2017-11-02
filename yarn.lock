@@ -2649,9 +2649,9 @@ style-search@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/style-search/-/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
 
-stylelint-config-shopify@v3.0.0-beta.4:
-  version "3.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/stylelint-config-shopify/-/stylelint-config-shopify-3.0.0-beta.4.tgz#d3c96a07ea00cdc8e11d2530525297dbbbd75efd"
+stylelint-config-shopify@^3.0.0-beta.5:
+  version "3.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/stylelint-config-shopify/-/stylelint-config-shopify-3.0.0-beta.5.tgz#733f0305fe99d672bcd50388c9db9aaf797294ba"
   dependencies:
     merge "1.2.x"
     stylelint-order "0.7.x"
