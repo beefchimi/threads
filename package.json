@@ -1,6 +1,6 @@
 {
   "name": "threads",
-  "version": "1.0.0-beta7",
+  "version": "1.0.0-beta8",
   "description": "SCSS property manager – organize with style",
   "author": "Curtis Dulmage",
   "homepage": "https://github.com/beefchimi/threads",
@@ -26,10 +26,11 @@
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
+    "prettier": "^1.8.2",
     "prettier-stylelint": "^0.4.2",
     "sassdoc": "^2.4.0",
     "sassdoc-theme-flippant": "^0.1.0",
     "stylelint": "^8.2.0",
-    "stylelint-config-shopify": "^3.0.0-beta.5"
+    "stylelint-config-shopify": "^4.0.0"
   }
 }
