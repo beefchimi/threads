@@ -10,8 +10,9 @@
 $cursor-label: 'cursor';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $cursor-label: ()
+  $threads-properties,
+  (
+    $cursor-label: (),
   )
 );
 

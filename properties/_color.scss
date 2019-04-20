@@ -10,8 +10,9 @@
 $color-label: 'color';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $color-label: ()
+  $threads-properties,
+  (
+    $color-label: (),
   )
 );
 

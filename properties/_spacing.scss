@@ -10,8 +10,9 @@
 $spacing-label: 'spacing';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $spacing-label: ()
+  $threads-properties,
+  (
+    $spacing-label: (),
   )
 );
 

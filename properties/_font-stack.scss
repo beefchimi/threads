@@ -10,8 +10,9 @@
 $font-stack-label: 'font-stack';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $font-stack-label: ()
+  $threads-properties,
+  (
+    $font-stack-label: (),
   )
 );
 

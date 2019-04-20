@@ -10,8 +10,9 @@
 $shadow-label: 'shadow';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $shadow-label: ()
+  $threads-properties,
+  (
+    $shadow-label: (),
   )
 );
 
@@ -23,7 +24,13 @@ $threads-properties: map-merge(
   $shadow-data: map-get($threads-properties, $shadow-label);
   $fetched-shadow: threads-value-get($shadow-data, $group, $variant);
 
-  @if type-of($fetched-shadow) == number or type-of($fetched-shadow) == string or type-of($fetched-shadow) == list {
+  @if type-of($fetched-shadow) ==
+    number or
+    type-of($fetched-shadow) ==
+    string or
+    type-of($fetched-shadow) ==
+    list
+  {
     @return $fetched-shadow;
   } @else {
     @error 'Shadow `#{$group} - #{$variant}` not found. Available options: #{available-names($shadow-data)}';

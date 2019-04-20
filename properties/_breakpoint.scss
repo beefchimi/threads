@@ -10,8 +10,9 @@
 $breakpoint-label: 'breakpoint';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $breakpoint-label: ()
+  $threads-properties,
+  (
+    $breakpoint-label: (),
   )
 );
 
