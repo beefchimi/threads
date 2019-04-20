@@ -10,8 +10,9 @@
 $z-index-label: 'z-index';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $z-index-label: ()
+  $threads-properties,
+  (
+    $z-index-label: (),
   )
 );
 

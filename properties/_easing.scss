@@ -10,8 +10,9 @@
 $easing-label: 'easing';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $easing-label: ()
+  $threads-properties,
+  (
+    $easing-label: (),
   )
 );
 

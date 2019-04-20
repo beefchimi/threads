@@ -10,8 +10,9 @@
 $radius-label: 'radius';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $radius-label: ()
+  $threads-properties,
+  (
+    $radius-label: (),
   )
 );
 

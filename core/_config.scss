@@ -25,7 +25,10 @@ $threads-default-value: 'base';
     // since this function is executed within a mixin,
     // the updated variable must be declared as `!global`
     $threads-properties: map-extend(
-      $threads-properties, ($property-name: $custom-map)
+      $threads-properties,
+      (
+        $property-name: $custom-map,
+      )
     ) !global;
 
     @return $threads-properties;

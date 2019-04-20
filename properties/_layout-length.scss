@@ -10,7 +10,8 @@
 $layout-length-label: 'layout-length';
 
 $threads-properties: map-merge(
-  $threads-properties, (
+  $threads-properties,
+  (
     $layout-length-label: (),
   )
 );

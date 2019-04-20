@@ -4,6 +4,7 @@
   ],
   "rules": {
     "comment-empty-line-before": null,
-    "scss/double-slash-comment-empty-line-before": null
+    "scss/double-slash-comment-empty-line-before": null,
+    "scss/operator-no-unspaced": null
   }
 }

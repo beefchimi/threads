@@ -8,25 +8,8 @@
 logs
 *.log
 
-# Ignore secrets.json
-secrets.json
-
-# Ignore build directory
-build
-
-# Ignore copyright webfonts
-dev/extra/fonts
-
-# Ignore scrap folders
-scrap
-
-# Ignore media audio, images, and videos
-dev/media/audio
-dev/media/images
-dev/media/videos
-
-# Ignore vendor scripts
-dev/scripts/vendor
+# Ignore docs directory
+docs
 
 # Dependency directory
 # Deployed apps should consider commenting this line out:

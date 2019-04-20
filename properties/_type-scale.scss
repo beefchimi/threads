@@ -10,8 +10,9 @@
 $type-scale-label: 'type-scale';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $type-scale-label: ()
+  $threads-properties,
+  (
+    $type-scale-label: (),
   )
 );
 

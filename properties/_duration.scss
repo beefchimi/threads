@@ -10,8 +10,9 @@
 $duration-label: 'duration';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $duration-label: ()
+  $threads-properties,
+  (
+    $duration-label: (),
   )
 );
 

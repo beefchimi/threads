@@ -55,8 +55,9 @@ Each individual property has its own dedicated map, which is then held within a 
 $color-label: 'color';
 
 $threads-properties: map-merge(
-  $threads-properties, (
-    $color-label: ()
+  $threads-properties,
+  (
+    $color-label: (),
   )
 );
 ```
